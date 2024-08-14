@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import EmployeeService from '../services/EmployeeService';
 function AddEmployeeComponent() {
+    const [submittedEntries, setSubmittedEntries] = useState([]);
     const  [formState, setFormState] = useState({
         firstName: '',
         lastName: '',
@@ -14,17 +16,25 @@ function AddEmployeeComponent() {
             [name]: value
         })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!formState.firstName || !formState.lastName || !formState.emailId) {
+        const { firstName, lastName, emailId } = formState;
+        if (!firstName || !lastName || !emailId) {
             alert("Please fill out all fields.");
             return;
         }
+        console.log('Form submitted:', formState);        
+        try {
+            await EmployeeService.addEmployee(formState);
+            // Reset form after submission
+            setFormState({ firstName: '', lastName: '', emailId: '' });
+            setTimeout(() => navigate('/'), 2000);
 
-        console.log('Form submitted:', formState);
-        // Reset form after submission
-        setFormState({ firstName: '', lastName: '', emailId: '' });
+        } catch (e) {
+            console.error(e);
+        }
     }
+
     const navigate = useNavigate();
     const backToHome = () => {
         navigate('/');
@@ -76,13 +86,13 @@ function AddEmployeeComponent() {
                 <div className="flex space-x-36 text-center">
                     <button 
                         type="submit" 
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
+                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200"
                     >
                         Add Employee
                     </button>
                     <button 
                         onClick={backToHome}
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
+                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition duration-200"
                     >
                         Cancel
                     </button>
