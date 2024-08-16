@@ -7,6 +7,12 @@ const EmployeeService = {
     },
     addEmployee: function(employee) {
         return axios.post(EMPLOYEE_API_BASE_URL, employee);
+    },
+    updateEmployee: function(employeeId, employee) {
+        return axios.put(`${EMPLOYEE_API_BASE_URL}/${employeeId}`, employee);
+    },
+    deleteEmployee: function(employeeId) {
+        return axios.delete(`${EMPLOYEE_API_BASE_URL}/${employeeId}`);
     }
 };
 
