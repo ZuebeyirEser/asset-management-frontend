@@ -25,10 +25,11 @@
         }
         const startEditEmployee = (employee) => {
             setEditingEmployee(employee);
+
         }
 
         const addEmployee = () => {
-            navigate('/add-employees')
+            navigate('/add-employees/:id')
         };
 
         const cancelEdit = () => {
@@ -43,7 +44,9 @@
                     console.log('There was an error deleting the employee', error);
             });
         }
-
+        const viewEmployee = (id) => {
+            navigate(`/view-employee/${id}`);
+        }
         const saveEmployee = () => {
             EmployeeService.updateEmployee(editingEmployee.id, editingEmployee)
                 .then(() => {
@@ -64,7 +67,7 @@
                 <h2 className="text-center mb-4 text-lg font-semibold">Employee List</h2>
                 <div className="mt-5">
                     <button
-                        className="bg-white text-purple-600 font-semibold py-2 px-4 rounded-full shadow hover:bg-gray-100 transition ease-in-out duration-300"
+                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                         onClick={addEmployee}
                     >
                         Add Employee
@@ -146,9 +149,15 @@
                                         </button>
                                         <button
                                             onClick={() => deleteEmployee(employee.id)}
-                                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+                                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                                         >
                                             Delete
+                                        </button>
+                                        <button
+                                            onClick={() => viewEmployee(employee.id)}
+                                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+                                        >
+                                            View
                                         </button>
                                     </td>
                                 </tr>

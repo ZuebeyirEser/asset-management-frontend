@@ -13,7 +13,10 @@ const EmployeeService = {
     },
     deleteEmployee: function(employeeId) {
         return axios.delete(`${EMPLOYEE_API_BASE_URL}/${employeeId}`);
-    }
+    },
+    getEmployeeById: function(employeeId) {
+        return axios.get(`${EMPLOYEE_API_BASE_URL}/${employeeId}`);
+    }    
 };
 
 
