@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import EmployeeService from '../services/EmployeeService';
 function AddEmployeeComponent() {
-    const [submittedEntries, setSubmittedEntries] = useState([]);
     const  [formState, setFormState] = useState({
         firstName: '',
         lastName: '',

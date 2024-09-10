@@ -29,7 +29,7 @@
         }
 
         const addEmployee = () => {
-            navigate('/add-employees/:id')
+            navigate('/add-employees')
         };
 
         const cancelEdit = () => {
