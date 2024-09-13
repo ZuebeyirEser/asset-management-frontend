@@ -6,6 +6,7 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ViewEmployeeComponent from './components/ViewEmployeeComponent';
+import SignInComponent from './components/SingInComponent';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <HeaderComponent />
           <div>
             <Routes> 
-                <Route path='/' exact element={<ListEmployeeComponent />} />
+                <Route path='/' exact element={<SignInComponent />} />
                 <Route path='/employees' element={<ListEmployeeComponent />} />
                 <Route path='/add-employees/' element={<AddEmployeeComponent />} />
                 <Route path='/view-employee/:id' element={<ViewEmployeeComponent />} />

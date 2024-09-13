@@ -11,7 +11,20 @@ const HeaderComponent = () => {
                 <p className="mt-3 text-lg text-white opacity-90">
                     Seamlessly manage your team's data with ease and efficiency
                 </p>
+                <div>
+                <button 
+                type="submit" 
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200">
+                    Register
+                </button>
+                <button 
+                type="submit" 
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200">
+                    Log-in
+                </button>
+            </div>
             </header>
+
         </div>
         );
 };
