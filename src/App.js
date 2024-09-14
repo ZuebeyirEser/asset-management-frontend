@@ -7,6 +7,9 @@ import FooterComponent from './components/FooterComponent';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import ViewEmployeeComponent from './components/ViewEmployeeComponent';
 import SignInComponent from './components/SingInComponent';
+import RegisterComponent from './components/RegisterComponent';
+import HomeComponent from './components/HomeComponent';
+
 
 
 function App() {
@@ -15,8 +18,10 @@ function App() {
       <div className="flex flex-col h-screen justify-between">
         <HeaderComponent />
           <div>
-            <Routes> 
-                <Route path='/' exact element={<SignInComponent />} />
+            <Routes>
+                <Route path='/' exact element={<HomeComponent />} /> 
+                <Route path='/login' exact element={<SignInComponent />} />
+                <Route path='/get-started' element={<RegisterComponent />} /> 
                 <Route path='/employees' element={<ListEmployeeComponent />} />
                 <Route path='/add-employees/' element={<AddEmployeeComponent />} />
                 <Route path='/view-employee/:id' element={<ViewEmployeeComponent />} />

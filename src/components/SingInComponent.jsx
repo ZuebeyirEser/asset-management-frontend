@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './logo.png';
 
 const SignInComponent = () => {
   return (
@@ -7,7 +8,7 @@ const SignInComponent = () => {
         <form className="w-full max-w-md">
           <img
             className="w-auto h-7 sm:h-8"
-            src="https://merakiui.com/images/logo.svg"
+            src={logo}
             alt="logo"
           />
 
@@ -101,7 +102,7 @@ const SignInComponent = () => {
 
             <div className="mt-6 text-center">
               <a
-                href=""
+                href="/register"
                 className="text-sm text-blue-500 hover:underline dark:text-blue-400"
               >
                 Don’t have an account yet? Sign up
