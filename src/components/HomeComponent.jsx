@@ -79,6 +79,31 @@ const HomeComponent = () => {
                 </div>
             </div>
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 className="text-lg font-semibold mb-4">Create Custumize List for Any Event</h3>
+                <div className="overflow-x-auto">
+                    <table className="min-w-full bg-white border border-gray-200">
+                        <thead>
+                        <tr>
+                            <th className="px-4 py-2 text-left border-b">Number of participant</th>
+                            <th className="px-4 py-2 text-left border-b">Location</th>
+                            <th className="px-4 py-2 text-left border-b">Project Leader</th>   
+                            <th className="px-4 py-2 text-left border-b">Status</th>
+                            <th className="px-4 py-2 text-left border-b">Co-sponsor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td className="px-4 py-2 border-b">Macbook Air</td>
+                            <td className="px-4 py-2 border-b">Washington DC</td>
+                            <td className="px-4 py-2 border-b">John Doe</td>
+                            <td className="px-4 py-2 border-b text-green-600">Upcoming</td>
+                            <td className="px-4 py-2 border-b text-blue-600">Adidas</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                 <h3 className="text-lg font-semibold mb-4">Latest Announcements</h3>
                 <div className="space-y-4">
                 <div className="p-4 bg-gray-100 rounded-lg">
