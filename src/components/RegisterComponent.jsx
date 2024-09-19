@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import AuthenticationService from '../services/EmployeeService'; 
+
 import logo from './logo.png';
 
 const RegisterComponent = () => {
@@ -17,9 +19,25 @@ const RegisterComponent = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form data:', formData);
+
+    // Add validation for password and confirmPassword match 
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      // Call the registerUser method from the AuthenticationService
+      const response = await AuthenticationService.registerUser(formData);
+      console.log("User registered successfully:", response.data);
+
+      // Optionally, redirect the user after successful registration
+      // e.g., navigate to login page or show a success message
+    } catch (error) {
+      console.error("There was an error registering the user!", error.response ? error.response.data : error.message);
+    }
   };
 
   return (
