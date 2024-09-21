@@ -1,24 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.png';
+import AuthenticationService from '../services/AuthenticationServer';
 
-const InputField = ({ type, placeholder, icon }) => (
+
+const InputField = ({ type, placeholder, icon, name, value, onChange }) => (
   <div className="relative flex items-center mt-4">
     <span className="absolute">
       {icon}
     </span>
     <input
       type={type}
+      name={name} // Capture the name (email, password)
+      value={value} // Bind the value from state
+      onChange={onChange} // Capture the onChange event
       className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
       placeholder={placeholder}
     />
   </div>
 );
 
-const SignInComponent = () => {
+function SignInComponent() {
+
+  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const credentials = { 
+        email: formData.email,
+        password: formData.password};
+      const response = await AuthenticationService.authenticateUser(credentials);
+      
+      // Assuming the backend returns a token on successful authentication
+      const token = response.data.token;
+      
+      // Save the token (localStorage or cookies)
+      localStorage.setItem('authToken', token);
+
+      // Redirect to the employees page
+      window.location.href = '/employees'; 
+    } catch (error) {
+      setError('Invalid email or password');
+    }
+  };
+
+
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-        <form className="w-full max-w-md">
+        <form className="w-full max-w-md" onSubmit={handleSubmit}>
           <img className="w-auto h-7 sm:h-8" src={logo} alt="logo" />
 
           <h1 className="mt-3 text-2xl font-semibold text-gray-800 capitalize sm:text-3xl dark:text-white">
@@ -44,6 +87,9 @@ const SignInComponent = () => {
                 />
               </svg>
             }
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
           />
 
           <InputField
@@ -65,10 +111,14 @@ const SignInComponent = () => {
                 />
               </svg>
             }
+            value={formData.password}
+            onChange={handleChange}
+            name='password'
           />
+          {error && (<p className="text-red-500 text-sm mt-2">{error}</p>)}
 
           <div className="mt-6">
-            <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+            <button type='submit' className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
               Sign in
             </button>
 
@@ -87,7 +137,7 @@ const SignInComponent = () => {
 
             <div className="mt-6 text-center">
               <a
-                href="/register"
+                href="/get-started"
                 className="text-sm text-blue-500 hover:underline dark:text-blue-400"
               >
                 Don’t have an account yet? Sign up

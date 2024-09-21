@@ -8,7 +8,11 @@ const AuthenticationService = {
   },
   
   authenticateUser: function(credentials) {
-    return axios.post(`${API_BASE_URL}/authenticate`, credentials);
+    return axios.post(`${API_BASE_URL}/authenticate`, credentials, {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
   }
 };
 
