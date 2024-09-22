@@ -3,7 +3,7 @@
     import { useNavigate } from 'react-router-dom';
     import { useEffect, useState } from 'react';
 
-    function ListEmployeeComponent() {
+    function ListEmployeeComponent({userId}) {
 
         const navigate = useNavigate();
         const [employees, setEmployees] = useState([]);
@@ -12,7 +12,7 @@
 
         useEffect(() => {
             fetchEmployees();
-        }, []);
+        }, [userId]);
 
         const fetchEmployees = () => {
             EmployeeService.getEmployees()
@@ -20,7 +20,7 @@
                 setEmployees(res.data)
             })
             .catch(error => {
-                console.log("there is fetching issue with employees");
+                console.log("there is fetching issue with employees" + error);
             });
         }
         const startEditEmployee = (employee) => {
