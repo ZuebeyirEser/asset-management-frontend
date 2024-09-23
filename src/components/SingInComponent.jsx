@@ -46,9 +46,13 @@ function SignInComponent() {
       
       // Assuming the backend returns a token on successful authentication
       const token = response.data.token;
+      const firstName = response.data.firstName;
+      const lastName = response.data.lastName;
       
       // Save the token (localStorage or cookies)
       localStorage.setItem('authToken', token);
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
 
       // Redirect to the employees page
       window.location.href = '/employees'; 

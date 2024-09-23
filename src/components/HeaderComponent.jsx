@@ -8,15 +8,18 @@ const HeaderComponent = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem("user"));
-    if (userData) {
-      setUser(userData)
+    const firstName = localStorage.getItem('firstName');
+    const lastName = localStorage.getItem('lastName');
+    if (firstName && lastName) {
+      setUser({firstName, lastName})
     }
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    localStorage.removeItem("user");
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("lastName");
+    setUser(null); 
     navigate("/login")
   }
 
@@ -26,7 +29,7 @@ const HeaderComponent = () => {
 
   const menuItems = [
     { name: "Home", route: "/" },
-    { name: "Company", route: "/company" },
+    { name: "Employees", route: "/employees" },
     { name: "Marketplace", route: "/marketplace" },
     { name: "Features", route: "/features" },
     { name: "Team", route: "/team" },
