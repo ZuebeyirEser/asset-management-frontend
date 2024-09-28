@@ -51,7 +51,7 @@
             const updatedEmployee = {
                 firstName: editingEmployee.firstName,
                 lastName: editingEmployee.lastName,
-                emailId: editingEmployee.emailId  // Make sure this matches your backend field name
+                emailId: editingEmployee.emailId  
             };
 
             EmployeeService.updateEmployee(editingEmployee.id, updatedEmployee)
@@ -145,7 +145,7 @@
                                         {employee.firstName}
                                     </th>
                                     <td className="px-6 py-4">{employee.lastName}</td>
-                                    <td className="px-6 py-4">{employee.email}</td>
+                                    <td className="px-6 py-4">{employee.emailId}</td>
                                     <td className="inline-flex px-6 py-4">
                                         <button
                                             onClick={() => startEditEmployee(employee)}

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import AddEmployeeComponent from './components/AddEmployeeComponent';
@@ -9,6 +8,7 @@ import ViewEmployeeComponent from './components/ViewEmployeeComponent';
 import SignInComponent from './components/SingInComponent';
 import RegisterComponent from './components/RegisterComponent';
 import HomeComponent from './components/HomeComponent';
+import ListAssetComponent from './components/ListAssetComponent';
 
 
 
@@ -23,6 +23,7 @@ function App() {
                 <Route path='/login' exact element={<SignInComponent />} />
                 <Route path='/get-started' element={<RegisterComponent />} /> 
                 <Route path='/employees' element={<ListEmployeeComponent />} />
+                <Route path='/view-assets' element={<ListAssetComponent />} />
                 <Route path='/add-employees/' element={<AddEmployeeComponent />} />
                 <Route path='/view-employee/:id' element={<ViewEmployeeComponent />} />
             </Routes>

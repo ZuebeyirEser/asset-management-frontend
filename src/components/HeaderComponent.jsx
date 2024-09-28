@@ -30,9 +30,6 @@ const HeaderComponent = () => {
   const menuItems = [
     { name: "Home", route: "/" },
     { name: "Employees", route: "/employees" },
-    { name: "Marketplace", route: "/marketplace" },
-    { name: "Features", route: "/features" },
-    { name: "Team", route: "/team" },
     { name: "Contact", route: "/contact" },
   ];
 
