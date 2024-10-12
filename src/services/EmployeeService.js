@@ -11,7 +11,7 @@ const EmployeeService = {
         return axios.get(EMPLOYEE_API_BASE_URL, getAuthHeader());
     },
     getEmployeesByUserId: function(userId) {
-        return axios.get(`${EMPLOYEE_API_BASE_URL}/user/${userId}/employees`,getAuthHeader());
+        return axios.get(`${EMPLOYEE_API_BASE_URL}/${userId}`,getAuthHeader());
     },
     addEmployee: function(employee) {
         return axios.post(EMPLOYEE_API_BASE_URL, employee, getAuthHeader());

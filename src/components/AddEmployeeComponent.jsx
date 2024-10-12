@@ -5,7 +5,7 @@ function AddEmployeeComponent() {
     const  [formState, setFormState] = useState({
         firstName: '',
         lastName: '',
-        emailId: ''
+        email: ''
     });
 
     const handleInputChange = (e) => {
@@ -17,8 +17,8 @@ function AddEmployeeComponent() {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const { firstName, lastName, emailId } = formState;
-        if (!firstName || !lastName || !emailId) {
+        const { firstName, lastName, email } = formState;
+        if (!firstName || !lastName || !email) {
             alert("Please fill out all fields.");
             return;
         }
@@ -26,7 +26,7 @@ function AddEmployeeComponent() {
         try {
             await EmployeeService.addEmployee(formState);
             // Reset form after submission
-            setFormState({ firstName: '', lastName: '', emailId: '' });
+            setFormState({ firstName: '', lastName: '', email: '' });
             setTimeout(() => navigate('/'), 2000);
 
         } catch (e) {

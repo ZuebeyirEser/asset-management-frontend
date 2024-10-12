@@ -30,7 +30,7 @@ const HeaderComponent = () => {
   const menuItems = [
     { name: "Home", route: "/" },
     { name: "Employees", route: "/employees" },
-    { name: "Contact", route: "/contact" },
+    { name: "Assets", route: "/view-assets" },
   ];
 
   return (

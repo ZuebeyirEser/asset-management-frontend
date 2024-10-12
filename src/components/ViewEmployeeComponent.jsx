@@ -2,17 +2,16 @@ import React, { useEffect, useState } from 'react';
 import EmployeeService from '../services/EmployeeService';
 import { useParams, useNavigate } from 'react-router-dom';
 
-function ViewEmployeeComponent() {
-    const { id } = useParams();
+function ViewEmployeeComponent({userId}) {
     const navigate = useNavigate();
     const [employee, setEmployee] = useState(null);
 
     useEffect(() => {
         fetchEmployee();
-    }, [id]);
+    }, [userId]);
 
     const fetchEmployee = () => {
-        EmployeeService.getEmployeeById(id)
+        EmployeeService.getEmployeeById(employee.userId)
             .then((res) => {
                 setEmployee(res.data);
             })
@@ -42,7 +41,7 @@ function ViewEmployeeComponent() {
                         <p className="text-gray-900">{employee.firstName} {employee.lastName}</p>
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700 font-bold">Email Id:</label>
+                        <label className="block text-gray-700 font-bold">Email:</label>
                         <p className="text-gray-900">{employee.emailId}</p>
                     </div>
                     <div className="mb-4">
@@ -72,10 +71,6 @@ function ViewEmployeeComponent() {
                     <div className="mb-4">
                         <label className="block text-gray-700 font-bold">Salary:</label>
                         <p className="text-gray-900">${employee.salary}</p>
-                    </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 font-bold">Manager:</label>
-                        <p className="text-gray-900">{employee.managerName}</p>
                     </div>
                     <div className="text-center">
                         <button
