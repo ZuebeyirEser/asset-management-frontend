@@ -1,5 +1,5 @@
 import axios from "axios";
-const EMPLOYEE_API_BASE_URL = 'http://localhost:8080/api/v2/assets';
+const EMPLOYEE_API_BASE_URL = 'http://localhost:8080/api/v1/assets';
 
 const getAuthHeader = () => {
     const token = localStorage.authToken;
@@ -15,6 +15,9 @@ const AssetService = {
     },
     deleteAsset: function(assetId) {
         return axios.delete(`${EMPLOYEE_API_BASE_URL}/${assetId}`, getAuthHeader());
+    }, 
+    addAsset: function(asset) {
+        return axios.post(EMPLOYEE_API_BASE_URL, asset, getAuthHeader());
     }
 }
 export default AssetService;

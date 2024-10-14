@@ -9,6 +9,7 @@ import SignInComponent from './components/SingInComponent';
 import RegisterComponent from './components/RegisterComponent';
 import HomeComponent from './components/HomeComponent';
 import ListAssetComponent from './components/ListAssetComponent';
+import AddAssetComponent from './components/AddAssetComponent';
 
 
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/employees' element={<ListEmployeeComponent />} />
                 <Route path='/view-assets' element={<ListAssetComponent />} />
                 <Route path='/add-employees/' element={<AddEmployeeComponent />} />
+                <Route path='/add-assets/' element={<AddAssetComponent />} />
                 <Route path='/view-employee/:id' element={<ViewEmployeeComponent />} />
             </Routes>
           </div>
