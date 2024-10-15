@@ -25,6 +25,7 @@ function RegisterComponent() {
     
       // Validate email
       if (!email.trim()) newErrors.email = "Email is required";
+      // regular expression for email validation
       else if (!/^\S+@\S+\.\S+$/.test(email)) newErrors.email = "Email is invalid";
     
       // Validate password
@@ -187,7 +188,7 @@ function RegisterComponent() {
               </button>
 
               <div className="mt-6 text-center">
-                <a href="#" className="text-sm text-blue-500 hover:underline dark:text-blue-400">
+                <a href="login" className="text-sm text-blue-500 hover:underline dark:text-blue-400">
                   Already have an account?
                 </a>
               </div>
