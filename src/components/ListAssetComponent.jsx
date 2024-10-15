@@ -302,6 +302,8 @@ function ListAssetComponent() {
                                 <td className="px-6 py-4">{asset.isAdminStructureThere ? 'Yes' : 'No'}</td>
                                 <td className="px-6 py-4">{asset.ipAddress}</td>
                                 <td className="px-6 py-4">{asset.macAddress}</td>
+                                <td className="px-6 py-4">{asset.purchaseDate}</td>
+                                <td className="px-6 py-4">{asset.warrantyDate}</td>
                                 <td className="inline-flex px-6 py-4">
                                     <button
                                         onClick={() => startEditAsset(asset)}
