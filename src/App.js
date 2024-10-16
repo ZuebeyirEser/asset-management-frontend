@@ -10,6 +10,7 @@ import RegisterComponent from './components/RegisterComponent';
 import HomeComponent from './components/HomeComponent';
 import ListAssetComponent from './components/ListAssetComponent';
 import AddAssetComponent from './components/AddAssetComponent';
+import AssetDetailsComponent from './components/AssetDetailsComponent';
 
 
 
@@ -25,9 +26,11 @@ function App() {
                 <Route path='/get-started' element={<RegisterComponent />} /> 
                 <Route path='/employees' element={<ListEmployeeComponent />} />
                 <Route path='/view-assets' element={<ListAssetComponent />} />
+                <Route path="/view-asset/:id" element={<AssetDetailsComponent />} />
                 <Route path='/add-employees/' element={<AddEmployeeComponent />} />
                 <Route path='/add-assets/' element={<AddAssetComponent />} />
                 <Route path='/view-employee/:id' element={<ViewEmployeeComponent />} />
+
             </Routes>
           </div>
         <FooterComponent className='sticky bottom-0'/>

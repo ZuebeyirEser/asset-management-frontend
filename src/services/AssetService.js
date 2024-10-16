@@ -18,6 +18,9 @@ const AssetService = {
     }, 
     addAsset: function(asset) {
         return axios.post(EMPLOYEE_API_BASE_URL, asset, getAuthHeader());
+    },
+    getAssetById: function(assetId) { 
+        return axios.get(`${EMPLOYEE_API_BASE_URL}/${assetId}`, getAuthHeader());
     }
 }
 export default AssetService;
