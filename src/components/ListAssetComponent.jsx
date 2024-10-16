@@ -83,7 +83,7 @@ function ListAssetComponent() {
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <h2 className="text-center mb-4 text-lg font-semibold">Asset List</h2>
-            <div className="mt-5">
+            <div className="flex justify-center mt-5">
                 <button
                     className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                     onClick={addAsset}
@@ -262,7 +262,7 @@ function ListAssetComponent() {
                     </div>
                 </div>
             ) : (
-                <table className="overflow-scroll w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-6">
+                <table className="overflow-scroll w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-6 m-8 ">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" className="px-6 py-3">Asset Type</th>
@@ -270,6 +270,7 @@ function ListAssetComponent() {
                         <th scope="col" className="px-6 py-3">Model</th>
                         <th scope="col" className="px-6 py-3">RAM</th>
                         <th scope="col" className="px-6 py-3">Storage Capacity</th>
+                        {/*
                         <th scope="col" className="px-6 py-3">Serial Number</th>
                         <th scope="col" className="px-6 py-3">Operating System</th>
                         <th scope="col" className="px-6 py-3">License of OS</th>
@@ -280,6 +281,7 @@ function ListAssetComponent() {
                         <th scope="col" className="px-6 py-3">MAC Address</th>
                         <th scope="col" className="px-6 py-3">Purchase Date</th>
                         <th scope="col" className="px-6 py-3">Warranty Date</th>
+                        */}
                         <th scope="col" className="px-6 py-3">Actions</th>
                     </tr>
 
@@ -294,6 +296,7 @@ function ListAssetComponent() {
                                 <td className="px-6 py-4">{asset.model}</td>
                                 <td className="px-6 py-4">{asset.ram}</td>
                                 <td className="px-6 py-4">{asset.storageCapacity}</td>
+                                {/*
                                 <td className="px-6 py-4">{asset.serialNumber}</td>
                                 <td className="px-6 py-4">{asset.operatingSystem}</td>
                                 <td className="px-6 py-4">{asset.licenceOfOS}</td>
@@ -304,6 +307,7 @@ function ListAssetComponent() {
                                 <td className="px-6 py-4">{asset.macAddress}</td>
                                 <td className="px-6 py-4">{asset.purchaseDate}</td>
                                 <td className="px-6 py-4">{asset.warrantyDate}</td>
+                                */}
                                 <td className="inline-flex px-6 py-4">
                                     <button
                                         onClick={() => startEditAsset(asset)}
